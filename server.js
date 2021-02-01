@@ -1,8 +1,8 @@
 const express = require('express');
-const path = require('path');
+//////const path = require('path');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const rootDirectory = require('./utilites/path');
+//////const rootDirectory = require('./utilites/path');
 const adminRouter = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const app = express();
@@ -10,7 +10,8 @@ const app = express();
 app.set('view engine', ejs);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use('/admin', adminRouter.router);//admin - is a filter
+//////app.use('/admin', adminRouter.router);//admin - is a filter
+app.use('/admin', adminRouter);
 app.use(shopRoutes);
 
 app.use((req, res) => {
